@@ -21,6 +21,6 @@ Route::post('/tokens', function (Request $request) {
     
 })->middleware('auth:sanctum');
 
-Route::post('/login', [LoginController::class, "authenticate"]);
+Route::post('/login', [LoginController::class, "login"]);
 
 Route::post('/logout', [LoginController::class, "logout"])->middleware('auth:sanctum');
