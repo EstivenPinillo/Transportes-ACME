@@ -22,6 +22,7 @@ return new class extends Migration
             $table->string('first_name', 40);
             $table->string('second_name', 40)->nullable();
             $table->string('last_name', 80);
+            $table->string('document', 30);
             $table->string('address', 200);
             $table->string('phone_number', 200);
             $table->string('email')->unique();
