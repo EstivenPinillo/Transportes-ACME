@@ -30,6 +30,7 @@ class UserFactory extends Factory
             'first_name' => fake()->name(),
             'second_name' => fake()->name(),
             'last_name' => fake()->name(),
+            'document' => fake()->randomNumber(7, true),
             'address' => fake()->text(100),
             'phone_number' => fake()->randomNumber(7, true),
             'email' => fake()->unique()->safeEmail(),
