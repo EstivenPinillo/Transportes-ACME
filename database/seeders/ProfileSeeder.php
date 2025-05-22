@@ -13,6 +13,18 @@ class ProfileSeeder extends Seeder
      */
     public function run(): void
     {
-        Profile::factory()->count(3)->create();
+        //Profile::factory()->count(3)->create();
+        Profile::create([
+            'name' => 'Administrador',
+            'description' => 'Administrador'
+        ]);
+        Profile::create([
+            'name' => 'Propietario',
+            'description' => 'Propietario del vehiculo'
+        ]);
+        Profile::create([
+            'name' => 'Conductor',
+            'description' => 'Conduce el vehiculo'
+        ]);
     }
 }

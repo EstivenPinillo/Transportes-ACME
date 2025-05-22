@@ -4,16 +4,28 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreProfileRequest;
 use App\Http\Requests\UpdateProfileRequest;
+use Illuminate\Http\JsonResponse;
 use App\Models\Profile;
+use App\Services\ProfileService;
 
 class ProfileController extends Controller
 {
+    private ProfileService $profileService;
+
+    public function __construct(ProfileService $profileService) {
+        $this->profileService = $profileService;
+    }
+
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        //
+        $profilesOwnerDrivre = $this->profileService->getProfileByUser();
+        if($profilesOwnerDrivre){
+            return new JsonResponse($profilesOwnerDrivre, JsonResponse::HTTP_OK);
+        }
+        return new JsonResponse($profilesOwnerDrivre, JsonResponse::HTTP_UNAUTHORIZED);
     }
 
     /**

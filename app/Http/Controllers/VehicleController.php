@@ -4,24 +4,28 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreVehicleRequest;
 use App\Http\Requests\UpdateVehicleRequest;
-use App\Models\Vehicle;
+use App\Services\VehicleService;
+use Illuminate\Http\JsonResponse;
 
 class VehicleController extends Controller
 {
+    private VehicleService $vehicleService;
+
+    public function __construct(VehicleService $vehicleService){
+        $this->vehicleService = $vehicleService;
+    }
+
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        //
-    }
+        $isLogined = $this->vehicleService->vehicleOwnerDriver();
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
+        if($isLogined){
+            return new JsonResponse($isLogined, JsonResponse::HTTP_OK);
+        }
+        return new JsonResponse($isLogined, JsonResponse::HTTP_UNAUTHORIZED);
     }
 
     /**
@@ -36,14 +40,6 @@ class VehicleController extends Controller
      * Display the specified resource.
      */
     public function show(Vehicle $vehicle)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Vehicle $vehicle)
     {
         //
     }

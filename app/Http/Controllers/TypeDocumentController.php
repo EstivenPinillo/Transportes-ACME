@@ -5,62 +5,23 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreTypeDocumentRequest;
 use App\Http\Requests\UpdateTypeDocumentRequest;
 use App\Models\TypeDocument;
+use App\Services\TypeDocumentService;
 
 class TypeDocumentController extends Controller
 {
+
+    private TypeDocumentService $typeDocumentService;
+
+    public function __construct(TypeDocumentService $typeDocumentService) {
+        $this->typeDocumentService = $typeDocumentService;
+    }
+
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        //
+        return $this->typeDocumentService->index();
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(StoreTypeDocumentRequest $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(TypeDocument $typeDocument)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(TypeDocument $typeDocument)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(UpdateTypeDocumentRequest $request, TypeDocument $typeDocument)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(TypeDocument $typeDocument)
-    {
-        //
-    }
 }

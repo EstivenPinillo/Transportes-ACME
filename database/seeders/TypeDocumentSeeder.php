@@ -13,6 +13,18 @@ class TypeDocumentSeeder extends Seeder
      */
     public function run(): void
     {
-        TypeDocument::factory()->count(3)->create();
+        //TypeDocument::factory()->count(3)->create();
+        TypeDocument::create([
+            'name' => 'Cedula de ciudadania',
+            'description' => 'Cedula'
+        ]);
+        TypeDocument::create([
+            'name' => 'Tarjeta de identidad',
+            'description' => 'Propietario del vehiculo'
+        ]);
+        TypeDocument::create([
+            'name' => 'Pasaporte extrajero',
+            'description' => 'Pasaporte'
+        ]);
     }
 }

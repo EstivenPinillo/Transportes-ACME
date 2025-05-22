@@ -18,7 +18,7 @@ class TypeDocumentFactory extends Factory
     {
         return [
             'name' => fake()->name(),
-            'description' => fake()->text(100),
+            'description' => fake()->text(10),
         ];
     }
 }

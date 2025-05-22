@@ -22,12 +22,12 @@ return new class extends Migration
             $table->string('first_name', 40);
             $table->string('second_name', 40)->nullable();
             $table->string('last_name', 80);
-            $table->string('document', 30);
+            $table->string('document', 30)->unique();
             $table->string('address', 200);
             $table->string('phone_number', 200);
-            $table->string('email')->unique();
+            $table->string('email')->unique()->nullable();
             $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
+            $table->string('password')->nullable();
             $table->rememberToken();
             $table->timestamps();
             $table->softDeletes('deleted_at', precision: 0);

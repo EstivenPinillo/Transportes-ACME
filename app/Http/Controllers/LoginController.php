@@ -45,4 +45,13 @@ class LoginController extends Controller
         }
         return new JsonResponse($itIsLogout, JsonResponse::HTTP_INTERNAL_SERVER_ERROR);
     }
+
+    /**
+     * Auth token is active.
+     */
+    public function authTokenActive()
+    {   
+        $isAuth = ['message' => "Authenticated." ];
+        return new JsonResponse($isAuth, JsonResponse::HTTP_OK);
+    }
 }

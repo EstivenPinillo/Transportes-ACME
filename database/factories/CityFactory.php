@@ -18,8 +18,8 @@ class CityFactory extends Factory
     {
         return [
             'country_id' => fake()->numberBetween(1,3),
-            'name' => fake()->text(100),
-            'state' => fake()->text(100),
+            'name' => fake()->text(10),
+            'state' => fake()->text(10),
             'postal_code' => fake()->randomNumber(7, true),
         ];
     }

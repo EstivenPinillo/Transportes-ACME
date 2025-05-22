@@ -22,6 +22,12 @@ class UserRepository implements UserRepositoryInterface
         return $user->save();
     }
 
+    public function storeReturnID(User $user) 
+    {   
+        $user->save();
+        return $user->id; 
+    }
+
     public function update($data, $id) 
     {
         return User::update($data)->where('id', $id);

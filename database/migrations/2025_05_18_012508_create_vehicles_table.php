@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->foreign('owner_id')->references('id')->on('users');
             $table->unsignedBigInteger('owner_id');
-            $table->string('license_plate', 80);
+            $table->string('license_plate', 80)->unique();
             $table->string('color', 80);
             $table->string('brand', 80);
             $table->enum('type', ['public', 'private']);
